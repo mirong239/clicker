@@ -50,7 +50,7 @@ public class ConiFall1 : MonoBehaviour
                 rb.velocity *= maxSquereVel / (rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y);
             }
         }
-        if(distance(lastPos, new Vector2(transform.position.x, transform.position.y)) < minDistance){
+        if(transform.position.y > lastPos.y){
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>().money += 1;
             Destroy(gameObject);
         }

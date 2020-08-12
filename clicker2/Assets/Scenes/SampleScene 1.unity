@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5747,8 +5747,8 @@ GameObject:
   - component: {fileID: 1710094456}
   - component: {fileID: 1710094460}
   - component: {fileID: 1710094459}
-  - component: {fileID: 1710094458}
   - component: {fileID: 1710094457}
+  - component: {fileID: 1710094458}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -5774,8 +5774,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -509}
-  m_SizeDelta: {x: 1010, y: 555}
+  m_AnchoredPosition: {x: -4, y: -722}
+  m_SizeDelta: {x: 1010, y: 557}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1710094457
 MonoBehaviour:
@@ -7226,7 +7226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8, y: -17.6}
+  m_AnchoredPosition: {x: 0.8000488, y: -17.599976}
   m_SizeDelta: {x: 988.2977, y: 500.41852}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133137386

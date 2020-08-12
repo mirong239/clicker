@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     private float vel = 0.1f;
     public float velocity = 0f;
     public Text text;
+    private double startTime = 0f;
 
     private float lastClickTime = -5f;
 
@@ -17,19 +18,28 @@ public class PlayerMove : MonoBehaviour
     public GameObject Attack;
     private Vector2 firePos;
     private bool is_courutine = false;
+    private double fps = 0;
     // Start is called before the first frame update
     void Start()
     {
+        startTime = Time.time;
         firePos = startAttackPos.transform.position;
     }
     void Update(){
-        if(Input.GetMouseButtonDown(0)){
+        //Debug.Log(Time.deltaTime);
+        fps = 1 / Time.deltaTime;
+    }
+
+    private void LateUpdate()
+    {
+        if (Input.GetMouseButtonDown(0)  && Time.time - startTime > 1)
+        {
             lastClickTime = Time.time;
             //Debug.Log("!!!");
-            if(!is_courutine) StartCoroutine(Coroutine1());
+            if (!is_courutine) StartCoroutine(Coroutine1());
         }
     }
-    
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -54,7 +64,7 @@ public class PlayerMove : MonoBehaviour
         else {
             velocity = vel;
         }
-        text.text = "Money " + money.ToString();
+        text.text = "Money " + money.ToString() + " \n FPS: " + (int)fps;
         /*if(won){
             won = false;
             money += 1;
@@ -66,13 +76,13 @@ public class PlayerMove : MonoBehaviour
     {
         gameObject.transform.localScale += new Vector3(0.1f,0.1f,0);
         is_courutine = true;
-        Debug.Log("!");
-        transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y + 10f), Time.deltaTime);
+        //Debug.Log("!");
+        //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y + 10f), Time.deltaTime);
         vel = 0.2f;
-        while(Time.time - lastClickTime < 2) yield return null;
-        Debug.Log("!!");
+        while(Time.time - lastClickTime < 1) yield return null;
+        //Debug.Log("!!");
         vel = 0.1f;
-        transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y - 10f), Time.deltaTime);
+        //transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y - 10f), Time.deltaTime);
         is_courutine = false;
         gameObject.transform.localScale -= new Vector3(0.1f,0.1f,0);
     }
